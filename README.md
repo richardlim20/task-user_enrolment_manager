@@ -23,6 +23,8 @@ You’ve been provided with a simple PHP framework simulating Moodle-like users 
   - All commits are logical and include a sane message
     - https://www.conventionalcommits.org/en/v1.0.0/
 
+- There is no need to include a datasource like a database in the application.
+
 ## ✅ Requirements
 
 - PHP 8.0+
