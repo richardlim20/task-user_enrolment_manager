@@ -2,6 +2,9 @@
 composer.lock
 vendor
 
+# PHPUnit temp files
+.phpunit.result.cache
+
 # Jetbrains and VSCode configs
 .idea
 .vscode
