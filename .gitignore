@@ -1,0 +1,7 @@
+# Composer config and packages
+composer.lock
+vendor
+
+# Jetbrains and VSCode configs
+.idea
+.vscode
