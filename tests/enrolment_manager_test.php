@@ -21,12 +21,12 @@ class enrolment_manager_test extends TestCase {
      */
     protected function setUp(): void {
         $users = [
-            1 => new user(1, "Alice"),
-            2 => new user(2, "Bob")
+            new user(1, "Alice"),
+            new user(2, "Bob")
         ];
         $courses = [
-            100 => new course(100, "Intro to PHP"),
-            200 => new course(200, "Moodle Basics")
+            new course(100, "Intro to PHP"),
+            new course(200, "Moodle Basics")
         ];
         $this->manager = new enrolment_manager($users, $courses);
     }
