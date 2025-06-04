@@ -52,10 +52,8 @@ class enrolment_manager_test extends TestCase
     public function testDuplicateEnrol(): void
     {
         $this->manager->enrol_user(1, 100);
+        $this->expectExceptionMessage('Duplicate enrolment.');
         $this->manager->enrol_user(1, 100);
-        $courses = $this->manager->get_user_courses(1);
-        //should still only show 1 course
-        $this->assertCount(1, $courses);
     }
 
     /**
