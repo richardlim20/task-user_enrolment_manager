@@ -80,13 +80,20 @@ class enrolment_manager
      * @return void
      */
     public function unenrol_user(int $userid, int $courseid): void
-    {
+    {  
+        $found = false;
         foreach ($this->enrolments as $key => $enrolment) {
             if ($enrolment['userid'] === $userid && $enrolment['courseid'] === $courseid ) {
                 unset($this->enrolments[$key]);
                 //Reset index
                 $this->enrolments = array_values($this->enrolments);
+                //Set found to true
+                $found = true;
             }
+        }
+
+        if(!$found){
+            throw new \InvalidArgumentException("Enrolment not found for user or course.");
         }
     }
 
