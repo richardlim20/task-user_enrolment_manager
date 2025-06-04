@@ -81,7 +81,11 @@ class enrolment_manager
      */
     public function unenrol_user(int $userid, int $courseid): void
     {
-        // Implement this.
+        foreach ($this->enrolments as $key => $enrolment) {
+            if ($enrolment['userid'] === $userid && $enrolment['courseid'] === $courseid ) {
+                unset($this->enrolments[$key]);
+            }
+        }
     }
 
     /**
