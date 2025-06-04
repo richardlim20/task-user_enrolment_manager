@@ -61,7 +61,7 @@ class enrolment_manager
         // Check for duplicate enrolment and ends if duplicate
         foreach ($this->enrolments as $enrolment) {
             if ($enrolment['userid'] === $userid && $enrolment['courseid'] === $courseid) {
-                return;
+                throw new \InvalidArgumentException("Duplicate enrolment.");
             }
         }
 
@@ -80,10 +80,10 @@ class enrolment_manager
      * @return void
      */
     public function unenrol_user(int $userid, int $courseid): void
-    {  
+    {
         $found = false;
         foreach ($this->enrolments as $key => $enrolment) {
-            if ($enrolment['userid'] === $userid && $enrolment['courseid'] === $courseid ) {
+            if ($enrolment['userid'] === $userid && $enrolment['courseid'] === $courseid) {
                 unset($this->enrolments[$key]);
                 //Reset index
                 $this->enrolments = array_values($this->enrolments);
@@ -92,7 +92,7 @@ class enrolment_manager
             }
         }
 
-        if(!$found){
+        if (!$found) {
             throw new \InvalidArgumentException("Enrolment not found for user or course.");
         }
     }
