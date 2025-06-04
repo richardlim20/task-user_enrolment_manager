@@ -1,9 +1,9 @@
 <?php
 
 
-require_once __DIR__ . '/user.php';
-require_once __DIR__ . '/course.php';
-require_once __DIR__ . '/enrolment_manager.php';
+require_once __DIR__ . '/src/user.php';
+require_once __DIR__ . '/src/course.php';
+require_once __DIR__ . '/src/enrolment_manager.php';
 use App\user;
 use App\course;
 use App\enrolment_manager;
@@ -27,8 +27,8 @@ $manager->enrol_user(1, 100);
 
 
 /**
- * CLI input: php <filepath  cli.php> , <command> <userid> <courseid>
- * e.g. php src/cli.php unenrol 1 100
+ * CLI input: php <filepath/cli.php> , <command> <userid> <courseid>
+ * e.g. php cli.php unenrol 1 100
  */
 
 try {
