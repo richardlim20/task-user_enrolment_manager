@@ -84,6 +84,8 @@ class enrolment_manager
         foreach ($this->enrolments as $key => $enrolment) {
             if ($enrolment['userid'] === $userid && $enrolment['courseid'] === $courseid ) {
                 unset($this->enrolments[$key]);
+                //Reset index
+                $this->enrolments = array_values($this->enrolments);
             }
         }
     }
