@@ -93,4 +93,11 @@ class enrolment_manager_test extends TestCase
         //Should be 0 courses
         $this->assertCount(0, $courses);
     }
+
+    //Test if enrollment is not found
+    public function testUnenrolUserNotFoundThrowsException(): void
+    {
+        $this->expectExceptionMessage('Enrolment not found for user or course.');
+        $this->manager->unenrol_user(1, 100);
+    }
 }
