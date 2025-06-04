@@ -90,8 +90,22 @@ class enrolment_manager
      * @param int $userid ID of user object.
      * @return array
      */
-    public function get_user_courses(int $userid): array {
-        // Implement this.
-        return [];
+    public function get_user_courses(int $userid): array
+    {
+        $userCourses = [];
+        //Loops through each object of enrolment array
+        foreach ($this->enrolments as $enrolment) {
+            //Check if userid exists in enrolment
+            if ($enrolment['userid'] === $userid) {
+                foreach ($this->courses as $course) {
+                    //Check if course id exists in enrolment and add course to $usercourses[]
+                    if ($course->id === $enrolment['courseid']) {
+                        $userCourses[] = $course;
+                        break;
+                    }
+                }
+            }
+        }
+        return $userCourses;
     }
 }
